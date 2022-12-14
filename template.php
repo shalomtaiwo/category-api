@@ -118,13 +118,13 @@ function getAllCategory()
 
     return $data;
 }
-function doesProductExistInCategory(string $category, string $product): bool
+function doesProductExistInCategory(string $category, string $productName): bool
 {
 
     $products = getProductsInCategory($category);
     $productExists = false;
     foreach($products as $product) {
-        if ($product->name === $product) {
+        if ($product->name === $productName) {
             $productExists = true;
             break;
         }
