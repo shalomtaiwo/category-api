@@ -3,4 +3,4 @@ include('./template.php');
 
 $category = $_GET['category'];
 echo '<pre>';
-return json_encode(getProductsInCategory($category));
+print_r(json_encode(getProductsInCategory($category)));

@@ -52,10 +52,29 @@ class Category
         $this->products = $products;
     }
 }
+class Index
+{
+    public string $greet;
+    public array $greeting;
+
+    public function __construct(string $greet, string $greeting)
+    {
+        $this->$greet = $greet;
+        $this->$greeting = $greeting;
+    }
+}
+
+$main = [
+    new Index('Hello', "Welcome to Category API"),
+];
 
 $data = [
     new Category('Mens', [new Product('Blue Shirt'), new Product('Red T-Shirt')]),
     new Category('Kids', [new Product('Sneakers'), new Product('Toy car')]),
+    new Category('Women', [new Product('White Skirt'), new Product('Pink Top'), new Product('Red Cap')]),
+    new Category('Furniture', [new Product('Coffee Table'), new Product('Office Chair'), new Product('Yellow Couch'), new Product('Equinox Office Desk')]),
+    new Category('Bedroom', [new Product('Duvet Covers'), new Product('Blankets')]),
+    new Category('Decor', [new Product('Lamp set'), new Product('Vases'), new Product('Wall Art'), new Product('Mirror')]),
 ];
 
 /**
@@ -66,12 +85,20 @@ $data = [
  * @return array
  */
 
+function getMainPage()
+{
+    // Implement me
+    global $main;
+
+    return $main;
+}
+
 function getProductsInCategory(string $category): array
 {
     // Implement me
     global $data;
     $products = [];
-    foreach($data as $cat) {
+    foreach ($data as $cat) {
         if ($cat->name === $category) {
             $products = $cat->products;
         }
@@ -79,11 +106,19 @@ function getProductsInCategory(string $category): array
 
     return $products;
 }
+
+function getAllCategory()
+{
+    // Implement me
+    global $data;
+
+    return $data;
+}
 function doesProductExistInCategory(string $category, string $product): bool
 {
 
 
-return true;
+    return true;
 }
 
 // echo '<pre>';
