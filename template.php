@@ -1,6 +1,10 @@
 <?php
 
-header('Access-Control-Allow-Origin: http://localhost:3000');
+header('Access-Control-Allow-Origin: *');
+
+header('Access-Control-Allow-Methods: GET, POST');
+
+header("Access-Control-Allow-Headers: X-Requested-With");
 
 /**
  * Feel free to change any code.
@@ -117,8 +121,15 @@ function getAllCategory()
 function doesProductExistInCategory(string $category, string $product): bool
 {
 
-
-    return true;
+    $products = getProductsInCategory($category);
+    $productExists = false;
+    foreach($products as $product) {
+        if ($product->name === $product) {
+            $productExists = true;
+            break;
+        }
+    }
+    return $productExists;
 }
 
 // echo '<pre>';
